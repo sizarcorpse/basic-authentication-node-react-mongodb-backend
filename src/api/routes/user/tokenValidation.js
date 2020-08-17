@@ -31,9 +31,9 @@ const sendAccessToken = (res, req, accesstoken) => {
 
 const sendRefreshToken = (res, token) => {
   res.cookie("refreshtoken", token, {
+    sameSite: "none",
     secure: true,
-    sameSite: false,
-    httpOnly: false,
+    httpOnly: true,
     maxAge: 160000,
     path: "/api/user/refreshtoken",
   });
