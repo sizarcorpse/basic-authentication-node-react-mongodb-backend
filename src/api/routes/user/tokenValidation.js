@@ -1,5 +1,6 @@
 /* eslint-disable comma-dangle */
 const { sign } = require("jsonwebtoken");
+const nodemon = require("nodemon");
 
 const generateAccessToken = (user) => {
   const token = sign(
@@ -31,6 +32,9 @@ const sendAccessToken = (res, req, accesstoken) => {
 
 const sendRefreshToken = (res, token) => {
   res.cookie("refreshtoken", token, {
+    samesite: false,
+    secure: true,
+    sameSite: false,
     httpOnly: false,
     maxAge: 160000,
     path: "/api/user/refreshtoken",
