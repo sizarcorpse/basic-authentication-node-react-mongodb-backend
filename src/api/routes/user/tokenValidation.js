@@ -1,6 +1,5 @@
 /* eslint-disable comma-dangle */
 const { sign } = require("jsonwebtoken");
-const nodemon = require("nodemon");
 
 const generateAccessToken = (user) => {
   const token = sign(
